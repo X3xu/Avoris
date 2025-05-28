@@ -1,0 +1,1032 @@
+// Variables y resets
+@import "variable";
+@import "reset";
+
+// Estilos globales
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #3B3B3B;
+  background-color: #fff;
+  line-height: 1.6;
+}
+
+// BOTONES
+.button {
+  cursor: pointer;
+  border: none;
+  border-radius: 208px;
+  font-weight: 600;
+  font-family: $font-nunito;
+  padding: 8px 14px;
+  text-align: center;
+  transition: background-color 0.3s ease;
+
+  &--primary {
+    background-color: #563654;
+    color: #fff;
+  }
+
+  &--secondary {
+    background-color: #fff;
+    border: 2px solid #563654;
+    color: #563654;
+  }
+
+  &--cta {
+    background-color: $color-primary;
+    color: $black;
+    text-decoration: none;
+    padding: 16px 48px;
+  }
+}
+
+// HEADER
+.header {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  padding: 12px 16px;
+  border-bottom: 1px solid $color-primary;
+  width: 100%;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    &__container {
+      //flex-direction: column;
+    }
+  }
+
+  &__logo {
+    display: inline-flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    span {
+      font-family: $font-nunito;
+      color: $color-secondary;
+      font-weight: 900;
+      margin-left: 4px;
+    }
+  }
+
+  &__logo img {
+    height: 32px;
+  }
+
+  @media only screen and (max-width: 1024px) {
+    &__nav .nav__list {
+      display: none;
+      flex-direction: column;
+      margin-top: 40px;
+    }
+  }
+
+  @media only screen and (min-width: 1024px) {
+    &__nav .nav__list {
+      display: flex !important;
+    }
+  }
+
+  &__nav .nav__list {
+    @include fontStyle ($family: 'Nunito', $weight: 700, $size: 16px, $lineHeight: 20px);
+    display: none;
+    align-items: center;
+    justify-content: space-around;
+    gap: 72px;
+    list-style: none;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    position: relative;
+    border: 1px solid red;
+    transition: border-color 0.3s ease;
+    width: auto;
+
+    &:hover {
+      border-bottom-color: $color-primary;
+    }
+  }
+
+
+  .nav__link {
+    color: $black;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+
+    &:hover {
+      color: $color-primary;
+    }
+
+    &:hover::after {
+      content: "";
+      position: absolute;
+      bottom: -100%; // Coloca el triángulo justo debajo
+      left: 50%;
+      transform: translateX(-50%) rotate(180deg);
+      width: 0;
+      height: 0;
+      border-left: 6px solid transparent;
+      border-right: 6px solid transparent;
+      border-top: 6px solid $color-primary;
+    }
+
+    &.ico_aventura::before {
+      content: "";
+      display: inline-block;
+      background-image: url('../images/aventura.svg');
+      background-size: contain;
+      width: 24px;
+      height: 24px;
+      margin-right: 0.5em;
+      vertical-align: text-bottom;
+    }
+
+    &.ico_destinos::before {
+      content: "";
+      display: inline-block;
+      background-image: url('../images/destinos.svg');
+      background-size: contain;
+      height: 18px;
+      width: 18px;
+      margin-right: 0.5em;
+      vertical-align: text-bottom;
+    }
+
+    &.ico_alojamiento::before {
+      content: "";
+      display: inline-block;
+      background-image: url('../images/alojamiento.svg');
+      background-size: contain;
+      width: 18px;
+      height: 20px;
+      margin-right: 0.5em;
+      vertical-align: text-bottom;
+    }
+  }
+
+  .header__actions {
+    @media screen and (max-width: 744px) {
+      .burger {
+        cursor: pointer;
+        display: block;
+        color: $color-secondary;
+        height: 24px;
+        width: 24px;
+      }
+    }
+
+    @media screen and (min-width: 1024px) {
+      .burger {
+        display: none;
+      }
+    }
+
+    .booking {
+      display: none;
+    }
+
+    @media screen and (min-width: 1024px) {
+      .booking {
+        display: block;
+        cursor: pointer;
+        border-radius: 208px;
+        padding: 12px 40px;
+        border: 1px solid $color-secondary;
+
+        &:hover {
+          color: $color-secondary;
+          background-color: $white;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  color: white;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 56px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+
+  &__content {
+    position: absolute;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    font-size: 2.5rem;
+    font-weight: bold;
+  }
+
+  &__subtitle {
+    margin: 1rem 0;
+    font-size: 1.2rem;
+  }
+
+  .button--cta {
+    background-color: $color-primary;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+
+    &:hover {
+      background-color: $color-primary;
+    }
+  }
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  &__wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 100%;
+  }
+
+  &__slide {
+    min-width: 100%;
+    object-fit: cover;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    color: white;
+    background: rgba(0, 0, 0, 0.3);
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    z-index: 2;
+
+    &--left {
+      left: 10px;
+    }
+
+    &--right {
+      right: 10px;
+    }
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+
+  &__dots {
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    text-align: center;
+    z-index: 2;
+
+    .carousel__dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 6px;
+      background-color: #ddd;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+
+      &--active {
+        background-color: #ff884d;
+      }
+    }
+  }
+}
+
+// INTRO
+.intro {
+  padding: 0 32px;
+  text-align: center;
+
+  .intro__container {
+    margin-bottom: 40px;
+
+    .intro__title {
+      color: $color-secondary;
+      font-family: 'Syne';
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 30px;
+    }
+
+    &.intro__text {
+      color: $color-grey;
+      font-family: $font-nunito;
+      font-size: 30px;
+      font-weight: 700;
+      line-height: 30px;
+    }
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .box__filter {
+    display: none;
+  }
+}
+
+.filter__button {
+  background-color: #FAF7F5;
+  border: 1px solid #622F6029;
+  border-radius: 208px;
+  color: $black;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
+  padding: 8px 16px;
+  position: relative;
+  text-decoration: none;
+  text-align: right;
+
+  span {
+    padding-left: 30px;
+  }
+}
+
+.filter__button::before {
+  content: '';
+  background-image: url('../images/filter.svg');
+  left: 7%;
+  position: absolute;
+  height: 24px;
+  width: 24px;
+}
+
+@media screen and (max-width: 1440px) {
+  .filters {
+    display: none;
+  }
+}
+
+// FILTROS (SIDEBAR)
+.filters {
+  background-color: #f7f7f7;
+  padding: 2rem;
+  border-radius: 1rem;
+  margin-right: 24px;
+  width: 350px;
+
+  &__close {
+    display: flex;
+    position: relative;
+
+    .modal__close {
+      position: absolute;
+      top: -50%;
+      right: 10%;
+      transform: translate(50%, 50%);
+      font-size: 2.5rem;
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  &__block {
+    margin-bottom: 2rem;
+  }
+
+  &__block-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+  }
+
+  &__item {
+    margin-bottom: 0.5rem;
+  }
+
+  &__input {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+  }
+
+  &__more {
+    color: $color-primary;
+    font-size: 0.9rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+
+// TARJETAS DE AVENTURA
+.cards {
+  padding: 0 15px 64px;
+
+
+
+  @media only screen and (max-width: 745px) {
+    .box__filter {
+      text-align: center;
+    }
+  }
+
+  @media only screen and (max-width: 745px) {
+    &__title {
+      text-align: center;
+    }
+  }
+
+  &__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    font-family: 'Syne';
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
+
+
+  &__grid {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+
+
+    @media only screen and (min-width: 744px) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      /* Solo 2 columnas */
+      gap: 24px;
+      justify-items: center;
+    }
+
+    @media only screen and (min-width: 1024px) {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      /* Solo 2 columnas */
+      gap: 24px;
+      justify-items: center;
+    }
+  }
+}
+
+.card {
+  background: #fff;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  max-width: 360px;
+
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 15px rgba(0, 0, 0, 0.05),
+    0 0 0 1px rgba(0, 0, 0, 0.02);
+
+  &__image {
+    position: relative;
+
+    img {
+      width: 100%;
+      height: 204px;
+      object-fit: cover;
+    }
+
+    & .card__tag {
+      border-radius: 208px;
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: $color-primary;
+      color: $black;
+      padding: 12px 16px;
+      font-size: 12px;
+      line-height: 16px;
+      font-weight: 800;
+    }
+  }
+
+  &__location {
+    font-size: 0.85rem;
+    color: #777;
+    margin: 16px;
+
+    span {
+      color: $color-secondary;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 700;
+    }
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    margin-left: 16px;
+  }
+
+  &__price {
+    align-items: flex-start;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 16px;
+    font-family: 'Nunito';
+    display: flex;
+    flex-direction: column;
+
+    strong {
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 24px;
+      font-family: 'Nunito';
+    }
+  }
+
+  &__actions {
+    background-color: #FBF6F4;
+    justify-content: space-between;
+    padding: 12px 16px;
+    width: 100%;
+
+    .box__prices {
+      align-items: flex-end;
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .card__link {
+      color: $color-secondary;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: 'Nunito';
+      line-height: 16px;
+      text-decoration: underline;
+    }
+
+    .card__link::after {
+      content: '';
+      background-image: url('../images/desglose.svg');
+      background-repeat: no-repeat;
+      color: $color-secondary;
+      display: inline-block;
+      margin-left: 4px;
+      margin-bottom: 2px;
+      height: 6px;
+      width: 9px;
+    }
+
+    .box__button {
+      display: flex;
+    }
+
+    .button--secondary {
+      background-color: $white;
+      border: 1px solid $color-secondary;
+      color: $color-secondary;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 16px;
+      flex: 1;
+      line-height: 24px;
+      padding: 8px 24px;
+
+      &:hover {
+        color: $white;
+        background-color: $color-secondary;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 1440px) {
+  .explorer__container {
+    flex-direction: column;
+  }
+}
+
+.explorer__container {
+  align-items: center;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+}
+
+.footer {
+
+  @media only screen and (min-width: 1440px) {
+    &__container {
+      justify-content: center !important;
+    }
+  }
+
+  &__container {
+    align-items: center;
+    background-color: #FAF7F5;
+    display: inline-flex;
+    padding: 48px;
+    justify-content: flex-start;
+    width: 100%;
+
+    span {
+      font-family: $font-nunito;
+      color: $color-secondary;
+      font-weight: 900;
+      margin-left: 4px;
+    }
+  }
+
+  &__copy {
+    background-color: #E0D9E0;
+    text-align: center;
+
+    color: $color-secondary;
+    font-size: 14px;
+    font-family: 'Nunito';
+    font-weight: 700;
+    line-height: 20px;
+    padding: 16px;
+
+  }
+}
+
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  height: 400px;
+  width: 100%;
+
+  &__wrapper {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  &__slide {
+    min-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    z-index: 1;
+
+    &--left {
+      left: 10px;
+    }
+
+    &--right {
+      right: 10px;
+    }
+  }
+
+  &__dots {
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  &__dot {
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: #bbb;
+    border-radius: 50%;
+    cursor: pointer;
+
+    &--active {
+      background-color: #717171;
+    }
+  }
+}
+
+.filters {
+  padding: 1rem;
+  background-color: #fdf9f6;
+  border-radius: 8px;
+  font-family: 'Syne', sans-serif;
+  color: $color-secondary;
+  height: 100%;
+  min-width: 264px;
+
+  @media (min-width: 1440px) {
+    #cerrarFilters {
+      display: none;
+    }
+  }
+
+  &__title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+  }
+
+  &__block {
+    border-top: 1px solid #e0dcd8;
+    padding: 1rem 0;
+
+    &-title {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      font-size: 1rem;
+      cursor: pointer;
+
+      .filters__block-icon {
+        margin-right: 8px;
+        font-size: 1.2rem;
+      }
+
+      .filters__arrow {
+        font-size: 0.875rem;
+        color: $color-primary;
+        margin-left: 10px;
+
+      }
+    }
+
+    &--open {
+
+      .filters__options,
+      .filters__price-inputs {
+        display: block;
+      }
+
+      .filters__arrow {
+        transform: rotate(90deg);
+      }
+    }
+  }
+
+  &__options {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+    display: none;
+
+    .filters__option {
+      margin: 0.5rem 0;
+
+      label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 14px;
+        font-weight: 700;
+        font-family: 'Nunito';
+        color: $black;
+        cursor: pointer;
+
+        input[type='checkbox'] {
+          accent-color: $color-primary;
+          width: 1rem;
+          height: 1rem;
+        }
+
+        .info-icon {
+          font-size: 0.75rem;
+          color: #000;
+          cursor: help;
+          border-radius: 50%;
+          border: 1px solid #000;
+          width: 1rem;
+          height: 1rem;
+          text-align: center;
+          line-height: 1rem;
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  &__more-link {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: $color-secondary;
+    font-size: 0.875rem;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  &__price-inputs {
+    display: none;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-top: 1rem;
+
+    .filters__input {
+      padding: 0.6rem 1rem;
+      border: 1px solid $color-secondary;
+      border-radius: 208px;
+      padding: 12px;
+      font-size: 14px;
+      color: #817781;
+
+      &::placeholder {
+        color: $color-secondary;
+      }
+    }
+  }
+}
+
+// Modal 
+
+@media (max-width: 390px) {
+  .modal {
+    height: 100%;
+  }
+
+  .modal__footer {
+    background-color: $white !important;
+  }
+}
+
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal {
+  background: #fff;
+  border-radius: 24px;
+  color: $black;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 320px;
+  width: 100%;
+
+  &__header {
+    @include fontStyle ($weight: 700, $family: 'Nunito');
+    align-items: center;
+    border-top-left-radius: 24px;
+    border-top-right-radius: 24px;
+    background-color: #FBF6F4;
+    border-bottom: 1px solid #eaeaea;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+  }
+
+  &__title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  &__close {
+    background: transparent;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  &__body {
+    padding: 1rem;
+  }
+
+  &__destination {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    font-weight: normal;
+
+    .modal__continent {
+      @include fontStyle($family: 'Syne', $weight: 700);
+      color: $color-secondary;
+    }
+
+    .modal__days {
+      @include fontStyle($family: 'Syne', $weight: 500);
+      color: $black;
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    border-bottom: 1px solid #f0f0f0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+
+  &__label {
+    color: $black;
+  }
+
+  &__amount {
+    @include fontStyle($family: 'Nunito', $weight: 700);
+
+  }
+
+  &__footer {
+    background-color: #FBF6F4;
+    border-top: 1px solid #eaeaea;
+    border-bottom-left-radius: 24px;
+    border-bottom-right-radius: 24px;
+    padding: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__final-amount {
+    @include fontStyle($family: 'Nunito', $weight: 700);
+  }
+
+  &__final-label {
+    @include fontStyle($family: 'Nunito', $weight: 700);
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+@media (min-width: 390px) and (max-width: 1440px) {
+  .filters {
+    position: absolute;
+    left: 0px;
+    z-index: 2;
+    box-shadow: 4px 0 8px rgba(0, 0, 0, 0.2);
+    border-radius: 0;
+  }
+
+  .explorer__container {
+    position: relative;
+  }
+}
+
+@media (max-width: 390px) {
+  .filters {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    z-index: 3;
+  }
+}
