@@ -1,337 +1,407 @@
 <!DOCTYPE html>
 <html lang="es">
 
-    <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta charset="UTF-8">
-        <title>waveless</title>
-        <link rel="icon" type="image/x-icon" href="images/logo.svg">
-        <link rel="stylesheet" href="styles/style.css">
-    </head>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <title>waveless</title>
+    <link rel="icon" type="image/x-icon" href="images/logo.svg">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
 
-    <body>
-        <header class="header">
-            <div class="header__container">
-                <div class="header__logo">
-                    <img src="images/logo.svg" alt="Waveless Logo">
-                    <span>waveless</span>
-                </div>
-                <nav class="header__nav">
-                    <ul class="nav__list">
-                        <li class="nav__item"><a href="#" class="nav__link ico_aventura">Aventura</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link ico_destinos">Destinos</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link ico_alojamiento">Alojamiento</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Sobre nosotros</a></li>
-                    </ul>
-                </nav>
-                <div class="header__actions">
-                    <a href="#" class="burger"> &#9776;</a>
-                    <button href="#" class="button button--primary booking">Reserva</button>
-                </div>
-            </div>
-        </header>
-
-        <section class="hero">
-            <div class="hero__content">
-                <h1 class="hero__title">Ruta por Australia</h1>
-                <p class="hero__subtitle">Si te va la aventura, no te lo puedes perder</p>
-                <a href="#" class="button button--cta">Más información</a>
-            </div>
-            <div class="hero__slider">
-                <div class="carousel">
-                    <div class="carousel__wrapper" id="carouselSlides">
-                        <img src="images/asia.svg" class="carousel__slide" alt="Slide 1" />
-                        <img src="images/asia.svg" class="carousel__slide" alt="Slide 2" />
-                        <img src="images/asia.svg" class="carousel__slide" alt="Slide 3" />
-                    </div>
-
-                    <button class="carousel__arrow carousel__arrow--left" id="prevBtn">&#10094;</button>
-                    <button class="carousel__arrow carousel__arrow--right" id="nextBtn">&#10095;</button>
-
-                    <div class="carousel__dots" id="carouselDots">
-                        <span class="carousel__dot carousel__dot--active" data-slide="0"></span>
-                        <span class="carousel__dot" data-slide="1"></span>
-                        <span class="carousel__dot" data-slide="2"></span>
-                    </div>
-                </div>
-        </section>
-
-        <main class="main">
-            <section class="intro">
-                <div class="intro__container">
-                    <h2 class="intro__title">Vive tus propias aventuras</h2>
-                    <p class="intro__text">Para los que les gusta explorar y conocer mundo sin complejos</p>
-                </div>
-            </section>
-
-            <section class="explorer">
-                <div class="explorer__container">
-
-                    <aside class="filters">
-                        <div class="filters__close">
-                            <h3 class="filters__title">Filtrar mi búsqueda</h3>
-                            <button id="cerrarFilters" class="modal__close" aria-label="Cerrar modal">&times;</button>
-                        </div>
-                        <!-- Destinos -->
-                        <div class="filters__block">
-                            <h4 class="filters__block-title">
-                                <span class="filters__block-icon"><img src="images/destinos.svg" alt="aventura"></span> Destinos
-                                <span class="filters__arrow">›</span>
-                            </h4>
-                            <!-- Opciones de destinos (a implementar si hace falta) -->
-                        </div>
-
-                        <!-- Aventura -->
-                        <div class="filters__block filters__block--open">
-                            <h4 class="filters__block-title">
-                                <span class="filters__block-icon"><img src="images/aventura.svg" alt="aventura"></span> Aventura
-                                <span class="filters__arrow filters__arrow">›</span>
-                            </h4>
-                            <ul class="filters__options">
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Quads <span class="info-icon">i</span></label>
-                                </li>
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Parapente <span class="info-icon">i</span></label>
-                                </li>
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Rafting <span class="info-icon">i</span></label>
-                                </li>
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Explora <span class="info-icon"
-                                            title="Lorem ipsum">i</span></label>
-                                </li>
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Buceo<span class="info-icon"
-                                            title="Lorem ipsum">i</span></label>
-                                </li>
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Paracaídas <span class="info-icon">i</span></label>
-                                </li>
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Snowboard <span class="info-icon">i</span></label>
-                                </li>
-                                <li class="filters__option">
-                                    <label><input type="checkbox"> Surf <span class="info-icon">i</span></label>
-                                </li>
-                            </ul>
-                            <a href="#" class="filters__more-link">Ver 21 más</a>
-                        </div>
-
-                        <!-- Alojamiento -->
-                        <div class="filters__block">
-                            <h4 class="filters__block-title">
-                                <span class="filters__block-icon"><img src="images/alojamiento.svg" alt="aventura"></span> Alojamiento
-                                <span class="filters__arrow">›</span>
-                            </h4>
-                        </div>
-
-                        <!-- Precio -->
-                        <div class="filters__block filters__block--open">
-                            <h4 class="filters__block-title">
-                                <span class="filters__block-icon"><img src="images/price-color.svg" alt="aventura"></span> Precio
-                                <span class="filters__arrow">›</span>
-                            </h4>
-                            <div class="filters__price-inputs">
-                                <input type="text" placeholder="Mínimo" class="filters__input">
-                                <input type="text" placeholder="Máximo" class="filters__input">
-                            </div>
-                        </div>
-                    </aside>
-                    <section class="cards">
-                        <div class="box__filter">
-                            <button class="filter__button"> <span>Ver filtros</span> </button>
-                        </div>
-                        <h3 class="cards__title">Asia</h3>
-                        <div class="cards__grid">
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="images/asia.svg" alt="Bangkok">
-                                    <span class="card__tag">Quads</span>
-                                </div>
-                                <div class="card__content">
-                                    <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
-                                    <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
-                                    <div class="card__actions">
-                                        <div class="box__prices">
-                                            <a href="#" class="card__link">Ver desglose</a>
-                                            <div class="card__price">
-                                                <span>Desde</span>
-                                                <strong>248,00 €</strong>
-                                            </div>
-                                        </div>
-                                        <div class="box__button">
-                                            <a href="#" class="button button--secondary">Reservar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="images/africa.svg" alt="Bangkok">
-                                    <span class="card__tag">Quads</span>
-                                </div>
-                                <div class="card__content">
-                                    <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
-                                    <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
-                                    <div class="card__actions">
-                                        <div class="box__prices">
-                                            <a href="#" class="card__link">Ver desglose</a>
-                                            <div class="card__price">
-                                                <span>Desde</span>
-                                                <strong>248,00 €</strong>
-                                            </div>
-                                        </div>
-                                        <div class="box__button">
-                                            <a href="#" class="button button--secondary">Reservar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="images/asia.svg" alt="Bangkok">
-                                    <span class="card__tag">Quads</span>
-                                </div>
-                                <div class="card__content">
-                                    <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
-                                    <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
-                                    <div class="card__actions">
-                                        <div class="box__prices">
-                                            <a href="#" class="card__link">Ver desglose</a>
-                                            <div class="card__price">
-                                                <span>Desde</span>
-                                                <strong>248,00 €</strong>
-                                            </div>
-                                        </div>
-                                        <div class="box__button">
-                                            <a href="#" class="button button--secondary">Reservar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="images/africa.svg" alt="Bangkok">
-                                    <div class="card__tags">
-                                        <span class="card__tag">Parapente</span>
-                                    </div>
-                                </div>
-                                <div class="card__content">
-                                    <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
-                                    <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
-                                    <div class="card__actions">
-                                        <div class="box__prices">
-                                            <a href="#" class="card__link">Ver desglose</a>
-                                            <div class="card__price">
-                                                <span>Desde</span>
-                                                <strong>248,00 €</strong>
-                                            </div>
-                                        </div>
-                                        <div class="box__button">
-                                            <a href="#" class="button button--secondary">Reservar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="images/africa.svg" alt="Bangkok">
-                                    <div class="card__tags">
-                                        <span class="card__tag">Surf</span>
-                                    </div>
-                                </div>
-                                <div class="card__content">
-                                    <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
-                                    <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
-                                    <div class="card__actions">
-                                        <div class="box__prices">
-                                            <a href="#" class="card__link">Ver desglose</a>
-                                            <div class="card__price">
-                                                <span>Desde</span>
-                                                <strong>248,00 €</strong>
-                                            </div>
-                                        </div>
-                                        <div class="box__button">
-                                            <a href="#" class="button button--secondary">Reservar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <div class="card__image">
-                                    <img src="images/africa.svg" alt="Bangkok">
-                                    <div class="card__tags">
-                                        <span class="card__tag">Buceo</span>
-                                    </div>
-                                </div>
-                                <div class="card__content">
-                                    <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
-                                    <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
-                                    <div class="card__actions">
-                                        <div class="box__prices">
-                                            <a href="#" class="card__link">Ver desglose</a>
-                                            <div class="card__price">
-                                                <span>Desde</span>
-                                                <strong>248,00 €</strong>
-                                            </div>
-                                        </div>
-                                        <div class="box__button">
-                                            <a href="#" class="button button--secondary">Reservar</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-                    </section>
-                </div>
-            </section>
-        </main>
-
-        <div class="modal-overlay hidden" role="dialog" >
-            <div class="modal">
-                <header class="modal__header">
-                    <h2 class="modal__title" id="modal__title">Desglose de precios</h2>
-                    <button id="cerrarModal" class="modal__close" aria-label="Cerrar modal">&times;</button>
-                </header>
-                <div class="modal__body">
-                    <h3 class="modal__destination">
-                        <span class="modal__continent">Marruecos, África</span>
-                        <span class="modal__days">9 días</span>
-                    </h3>
-                    <ul class="modal__list">
-                        <li class="modal__item">
-                            <span class="modal__label">Precio antes de impuestos</span>
-                            <span class="modal__amount">1.124,00 €</span>
-                        </li>
-                        <li class="modal__item">
-                            <span class="modal__label">Impuesto</span>
-                            <span class="modal__amount">4,43 €</span>
-                        </li>
-                        <li class="modal__item">
-                            <span class="modal__label">Lorem ipsum</span>
-                            <span class="modal__amount">150,42 €</span>
-                        </li>
-                    </ul>
-                </div>
-                <footer class="modal__footer">
-                    <span class="modal__final-label">Precio final</span>
-                    <span class="modal__final-amount">2.455,00 €</span>
-                </footer>
-            </div>
-        </div>
-
-        <footer class="footer">
-            <div class="footer__container">
+<body>
+    <header class="header">
+        <div class="header__container">
+            <div class="header__logo">
                 <img src="images/logo.svg" alt="Waveless Logo">
                 <span>waveless</span>
             </div>
-            <div class="footer__copy">
-                <p>&copy;2024 Waveless - Todos los derechos reservados.</p>
+            <nav class="header__nav">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="#" class="nav__link ico_aventura">Aventura</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link ico_destinos">Destinos</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link ico_alojamiento">Alojamiento</a></li>
+                    <li class="nav__item"><a href="#" class="nav__link">Sobre nosotros</a></li>
+                </ul>
+            </nav>
+            <div class="header__actions">
+                <a href="#" class="burger"> &#9776;</a>
+                <button href="#" class="button button--primary booking">Reserva</button>
             </div>
-        </footer>
+        </div>
+    </header>
 
-        <script src="script.js"></script>
-    </body>
+    <section class="hero">
+        <div class="hero__content">
+            <h1 class="hero__title">Ruta por Australia</h1>
+            <p class="hero__subtitle">Si te va la aventura, no te lo puedes perder</p>
+            <a href="#" class="button button--cta">Más información</a>
+        </div>
+        <div class="hero__slider">
+            <div class="carousel">
+                <div class="carousel__wrapper" id="carouselSlides">
+                    <img src="images/asia.svg" class="carousel__slide" alt="Slide 1" />
+                    <img src="images/asia.svg" class="carousel__slide" alt="Slide 2" />
+                    <img src="images/asia.svg" class="carousel__slide" alt="Slide 3" />
+                </div>
+
+                <button class="carousel__arrow carousel__arrow--left" id="prevBtn">&#10094;</button>
+                <button class="carousel__arrow carousel__arrow--right" id="nextBtn">&#10095;</button>
+
+                <div class="carousel__dots" id="carouselDots">
+                    <span class="carousel__dot carousel__dot--active" data-slide="0"></span>
+                    <span class="carousel__dot" data-slide="1"></span>
+                    <span class="carousel__dot" data-slide="2"></span>
+                </div>
+            </div>
+    </section>
+
+    <main class="main">
+        <section class="intro">
+            <div class="intro__container">
+                <h2 class="intro__title">Vive tus propias aventuras</h2>
+                <p class="intro__text">Para los que les gusta explorar y conocer mundo sin complejos</p>
+            </div>
+        </section>
+
+        <section class="explorer">
+            <div class="explorer__container">
+
+                <aside class="filters">
+                    <div class="filters__close">
+                        <h3 class="filters__title">Filtrar mi búsqueda</h3>
+                        <button id="cerrarFilters" class="modal__close" aria-label="Cerrar modal">&times;</button>
+                    </div>
+                    <!-- Destinos -->
+                    <div class="filters__block">
+                        <h4 class="filters__block-title">
+                            <span class="filters__block-icon"><img src="images/destinos.svg" alt="aventura"></span>
+                            Destinos
+                            <span class="filters__arrow">›</span>
+                        </h4>
+                    </div>
+
+                    <!-- Aventura -->
+                    <div class="filters__block filters__block--open">
+                        <h4 class="filters__block-title">
+                            <span class="filters__block-icon"><img src="images/aventura.svg" alt="aventura"></span>
+                            Aventura
+                            <span class="filters__arrow filters__arrow">›</span>
+                        </h4>
+                        <ul class="filters__options">
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Quads <span class="info-icon">i</span></label>
+                            </li>
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Parapente <span class="info-icon">i</span></label>
+                            </li>
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Rafting <span class="info-icon">i</span></label>
+                            </li>
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Explora <span class="info-icon"
+                                        title="Lorem ipsum">i</span></label>
+                            </li>
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Buceo <span class="info-icon"
+                                        title="Lorem ipsum">i</span></label>
+                            </li>
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Paracaidas <span class="info-icon">i</span></label>
+                            </li>
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Snowboard <span class="info-icon">i</span></label>
+                            </li>
+                            <li class="filters__option">
+                                <label><input type="checkbox"> Surf <span class="info-icon">i</span></label>
+                            </li>
+                        </ul>
+                        <a href="#" class="filters__more-link">Ver 21 más</a>
+                    </div>
+
+                    <!-- Alojamiento -->
+                    <div class="filters__block">
+                        <h4 class="filters__block-title">
+                            <span class="filters__block-icon"><img src="images/alojamiento.svg" alt="aventura"></span>
+                            Alojamiento
+                            <span class="filters__arrow">›</span>
+                        </h4>
+                    </div>
+
+                    <!-- Precio -->
+                    <div class="filters__block filters__block--open">
+                        <h4 class="filters__block-title">
+                            <span class="filters__block-icon"><img src="images/price-color.svg" alt="aventura"></span>
+                            Precio
+                            <span class="filters__arrow">›</span>
+                        </h4>
+                        <div class="filters__price-inputs">
+                            <input type="text" placeholder="Mínimo" class="filters__input">
+                            <input type="text" placeholder="Máximo" class="filters__input">
+                        </div>
+                    </div>
+                </aside>
+                <section class="cards">
+                    <div class="box__filter">
+                        <button class="filter__button"> <span>Ver filtros</span> </button>
+                    </div>
+                    <h3 class="cards__title">Asia</h3>
+                    <div class="cards__grid">
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/asia.svg" alt="Bangkok">
+                                <span class="card__tag">Quads</span>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/africa.svg" alt="Bangkok">
+                                <span class="card__tag">Snowboard</span>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/africa.svg" alt="Bangkok">
+                                <span class="card__tag">Rafting</span>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/africa.svg" alt="Bangkok">
+                                <span class="card__tag">Explora</span>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/africa.svg" alt="Bangkok">
+                                <span class="card__tag">Paracaidas</span>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/asia.svg" alt="Bangkok">
+                                <span class="card__tag">Quads</span>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/africa.svg" alt="Bangkok">
+                                <div class="card__tags">
+                                    <span class="card__tag">Parapente</span>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/africa.svg" alt="Bangkok">
+                                <div class="card__tags">
+                                    <span class="card__tag">Surf</span>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                        <article class="card">
+                            <div class="card__image">
+                                <img src="images/africa.svg" alt="Bangkok">
+                                <div class="card__tags">
+                                    <span class="card__tag"> Buceo </span>
+                                </div>
+                            </div>
+                            <div class="card__content">
+                                <p class="card__location"> <span>Marruecos, África </span>· 9 días</p>
+                                <h4 class="card__title">Descubre Bangkok con Iberojet</h4>
+                                <div class="card__actions">
+                                    <div class="box__prices">
+                                        <a href="#" class="card__link">Ver desglose</a>
+                                        <div class="card__price">
+                                            <span>Desde</span>
+                                            <strong>248,00 €</strong>
+                                        </div>
+                                    </div>
+                                    <div class="box__button">
+                                        <a href="#" class="button button--secondary">Reservar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <div class="modal-overlay hidden" role="dialog">
+        <div class="modal">
+            <header class="modal__header">
+                <h2 class="modal__title" id="modal__title">Desglose de precios</h2>
+                <button id="cerrarModal" class="modal__close" aria-label="Cerrar modal">&times;</button>
+            </header>
+            <div class="modal__body">
+                <h3 class="modal__destination">
+                    <span class="modal__continent">Marruecos, África</span>
+                    <span class="modal__days">9 días</span>
+                </h3>
+                <ul class="modal__list">
+                    <li class="modal__item">
+                        <span class="modal__label">Precio antes de impuestos</span>
+                        <span class="modal__amount">1.124,00 €</span>
+                    </li>
+                    <li class="modal__item">
+                        <span class="modal__label">Impuesto</span>
+                        <span class="modal__amount">4,43 €</span>
+                    </li>
+                    <li class="modal__item">
+                        <span class="modal__label">Lorem ipsum</span>
+                        <span class="modal__amount">150,42 €</span>
+                    </li>
+                </ul>
+            </div>
+            <footer class="modal__footer">
+                <span class="modal__final-label">Precio final</span>
+                <span class="modal__final-amount">2.455,00 €</span>
+            </footer>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer__container">
+            <img src="images/logo.svg" alt="Waveless Logo">
+            <span>waveless</span>
+        </div>
+        <div class="footer__copy">
+            <p>&copy;2024 Waveless - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
 </html>

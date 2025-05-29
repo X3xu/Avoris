@@ -33,10 +33,12 @@ body {
   }
 
   &--cta {
+    @include fontStyle($family: $font-nunito, $size: 16px, $lineHeight: 24px, $weight: 600);
     background-color: $color-primary;
     color: $black;
     text-decoration: none;
-    padding: 16px 48px;
+    border-radius: 208px;
+    padding: 12px 40px;
   }
 }
 
@@ -61,15 +63,14 @@ body {
   }
 
   &__logo {
-    display: inline-flex;
-    align-items: flex-end;
-    justify-content: center;
+    display: flex;
 
     span {
       font-family: $font-nunito;
       color: $color-secondary;
-      font-weight: 900;
-      margin-left: 4px;
+      font-weight: 800;
+      margin-left: 5px;
+      font-size: 1.5rem;
     }
   }
 
@@ -235,34 +236,21 @@ body {
   }
 
   &__title {
-    font-size: 2.5rem;
-    font-weight: bold;
+    @include fontStyle($family: $font-syne, $weight: 700, $size: 34px, $lineHeight: 38px);
+    margin-bottom: 12px;
   }
 
   &__subtitle {
-    margin: 1rem 0;
-    font-size: 1.2rem;
+    @include fontStyle($family: $font-nunito, $weight: 500, $size: 24px, $lineHeight: 30px);
+    margin-bottom: 48px;
   }
 
-  .button--cta {
-    background-color: $color-primary;
-    border: none;
-    padding: 0.75rem 1.5rem;
-    border-radius: 2rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease;
-
-    &:hover {
-      background-color: $color-primary;
-    }
-  }
 }
 
 .carousel {
   position: relative;
+  height: 400px;
   width: 100%;
-  height: 100vh;
 
   &__wrapper {
     display: flex;
@@ -279,20 +267,37 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 2rem;
+    font-size: 1rem;
     color: white;
-    background: rgba(0, 0, 0, 0.3);
+    width: 40px;
+    height: 40px;
     border: none;
     padding: 0.5rem;
     cursor: pointer;
     z-index: 2;
 
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(98, 47, 96, 0.32);
+      z-index: -2;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.1);
+      z-index: -1;
+    }
+
     &--left {
-      left: 10px;
+      left: 1px;
     }
 
     &--right {
-      right: 10px;
+      right: 1px;
     }
 
     &:hover {
@@ -332,19 +337,17 @@ body {
     margin-bottom: 40px;
 
     .intro__title {
-      color: $color-secondary;
+      color: #2F222F;
       font-family: 'Syne';
       font-size: 30px;
       font-weight: 700;
       line-height: 30px;
     }
 
-    &.intro__text {
-      color: $color-grey;
-      font-family: $font-nunito;
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 30px;
+    .intro__text {
+      @include fontStyle ($family: $font-nunito, $size: 22px, $lineHeight: 26px);
+      color: rgba(107, 125, 141, 1);
+      margin-top: 8px;
     }
   }
 }
@@ -644,7 +647,6 @@ body {
 }
 
 .explorer__container {
-  align-items: center;
   display: flex;
   margin: 0 auto;
   justify-content: center;
@@ -688,65 +690,6 @@ body {
   }
 }
 
-
-.carousel {
-  position: relative;
-  overflow: hidden;
-  height: 400px;
-  width: 100%;
-
-  &__wrapper {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-  }
-
-  &__slide {
-    min-width: 100%;
-    height: auto;
-    display: block;
-  }
-
-  &__arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    border: none;
-    color: white;
-    font-size: 2rem;
-    padding: 0.5rem 1rem;
-    cursor: pointer;
-    z-index: 1;
-
-    &--left {
-      left: 10px;
-    }
-
-    &--right {
-      right: 10px;
-    }
-  }
-
-  &__dots {
-    text-align: center;
-    margin-top: 1rem;
-  }
-
-  &__dot {
-    display: inline-block;
-    height: 12px;
-    width: 12px;
-    margin: 0 5px;
-    background-color: #bbb;
-    border-radius: 50%;
-    cursor: pointer;
-
-    &--active {
-      background-color: #717171;
-    }
-  }
-}
-
 .filters {
   padding: 1rem;
   background-color: #fdf9f6;
@@ -760,6 +703,8 @@ body {
     #cerrarFilters {
       display: none;
     }
+
+    margin-top: 76px;
   }
 
   &__title {
@@ -1029,4 +974,25 @@ body {
     left: 0;
     z-index: 3;
   }
+}
+
+
+.filters__arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.filters__block--open .filters__arrow {
+  transform: rotate(90deg);
+  /* Gira la flecha cuando está abierto */
+}
+
+
+.filters__icon {
+  fill: #6a6a6a;
+  transition: fill 0.3s ease;
+}
+
+.filters__block--open .filters__icon {
+  fill: #E94E77;
 }

@@ -120,88 +120,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
-/*
-// Menú hamburguesa
-document.addEventListener('DOMContentLoaded', () => {
-  const buttonBurger = document.querySelector('.burger');
-
-  buttonBurger.addEventListener('click', () => showMenu());
-
-  function showMenu(){
-    const menuResponsive = document.querySelector('.nav__list');
-    menuResponsive.style.display = 'block';
-    buttonBurger.style.display = 'none';
-  }
-});
-
-// Ver menú filtro 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const buttonFilter = document.querySelector('.filter__button');
-
-  buttonFilter.addEventListener('click', () => showMenu());
-
-  function showMenu(){
-    const menuResponsive = document.querySelector('.filters');
-    menuResponsive.style.display = 'block';
-    buttonBurger.style.display = 'none';
-  }
-});
-
-// Ver menú filtro 
-
-document.addEventListener('DOMContentLoaded', () => {
-  const buttonFilter = document.querySelector('#cerrarFilters');
-
-  buttonFilter.addEventListener('click', () => showMenu());
-
-  function showMenu(){
-    const menuResponsive = document.querySelector('.filters');
-    menuResponsive.style.display = 'block';
-    buttonBurger.style.display = 'none';
-  }
-});
-
-document.addEventListener('DOMContentLoaded', () => {
-  const buttonFilter = document.querySelector('#cerrarModal');
-
-  buttonFilter.addEventListener('click', () => showMenu());
-
-  function showMenu(){
-    const menuResponsive = document.querySelector('.modal-overlay');
-    menuResponsive.style.display = 'block';
-    buttonBurger.style.display = 'none';
-  }
-});
-
-
-document.addEventListener('DOMContentLoaded', () => {
-
-  function toggleElement(triggerSelector, elementSelector) {
-    const trigger = document.querySelector(triggerSelector);
-    const element = document.querySelector(elementSelector);
-    
-    if (!trigger || !element) {
-      console.error('Elementos no encontrados:', { triggerSelector, elementSelector });
-      return;
-    }
-
-    trigger.addEventListener('click', (e) => {
-      e.preventDefault();
-      element.style.display = element.style.display === 'block' ? 'none' : 'block';
-    });
-  }
-
-  // Uso para el menú de filtros
-  toggleElement('.filter__button', '.filters');
-  
-  // Uso para el botón de cerrar (si existe)
-  toggleElement('#cerrarFilters', '.filters');
-  
-  // Uso para el menú hamburguesa (ejemplo adicional)
-  toggleElement('.burger', '.nav__list');
-}); */
-
 
 document.addEventListener('DOMContentLoaded', () => {
   function setupToggle(triggerSelector, targetSelector, { hideTrigger = false, showOnly = false } = {}) {
@@ -231,5 +149,20 @@ document.addEventListener('DOMContentLoaded', () => {
   // Configuración de botones
   setupToggle('.filter__button', '.filters');
   setupToggle('#cerrarFilters', '.filters');
+});
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    const filterBlocks = document.querySelectorAll('.filters__block');
+
+    filterBlocks.forEach(block => {
+        const title = block.querySelector('.filters__block-title');
+
+        if (title) {
+            title.addEventListener('click', () => {
+                block.classList.toggle('filters__block--open');
+            });
+        }
+    });
 });
 
