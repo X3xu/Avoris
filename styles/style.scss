@@ -38,7 +38,11 @@ body {
     color: $black;
     text-decoration: none;
     border-radius: 208px;
-    padding: 12px 40px;
+    
+
+    @media only screen and (min-width: 504px) {
+      padding: 12px 40px;
+    }
   }
 }
 
@@ -427,6 +431,11 @@ body {
     font-weight: 600;
     font-size: 1rem;
     margin-bottom: 0.75rem;
+
+    
+    &:hover {
+      color: $color-primary;
+    }
   }
 
   &__list {
@@ -826,8 +835,7 @@ body {
 @media (max-width: 390px) {
   .modal {
     height: 100%;
-  }
-
+  }filters
   .modal__footer {
     background-color: $white !important;
   }
@@ -967,7 +975,7 @@ body {
   }
 }
 
-@media (max-width: 390px) {
+@media (max-width: 500px) {
   .filters {
     position: fixed !important;
     top: 0;
@@ -995,4 +1003,75 @@ body {
 
 .filters__block--open .filters__icon {
   fill: #E94E77;
+}
+
+@media only screen and (max-width: 390px) {
+  .filters {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1000;
+    background-color: #fdf9f6;
+    padding: 2rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+
+    // Asegúrate de mostrarlo al abrir
+    &.is-open {
+      display: flex !important;
+    }
+  }
+
+}
+
+
+.info-icon {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+
+  &::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #fff;
+    color: #333;
+    padding: 8px 12px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-size: 14px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: 115%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 6px;
+    border-style: solid;
+    border-color: #fff transparent transparent transparent;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease;
+    z-index: 9;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    opacity: 1;
+    visibility: visible;
+  }
 }
