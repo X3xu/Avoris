@@ -172,7 +172,7 @@ body {
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   padding: 12px 16px;
-  border-bottom: 1px solid #ff8f50;
+  border-bottom: 2px solid #ff8f50;
   width: 100%;
 }
 .header__container {
@@ -218,15 +218,6 @@ body {
   list-style: none;
   flex-wrap: wrap;
 }
-.header__item {
-  position: relative;
-  border: 1px solid red;
-  transition: border-color 0.3s ease;
-  width: auto;
-}
-.header__item:hover {
-  border-bottom-color: #ff8f50;
-}
 .header .nav__link {
   color: #342e34;
   text-decoration: none;
@@ -239,7 +230,7 @@ body {
 .header .nav__link:hover::after {
   content: "";
   position: absolute;
-  bottom: -100%;
+  bottom: -130%;
   left: 50%;
   transform: translateX(-50%) rotate(180deg);
   width: 0;
@@ -253,8 +244,8 @@ body {
   display: inline-block;
   background-image: url("../images/aventura.svg");
   background-size: contain;
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   margin-right: 0.5em;
   vertical-align: text-bottom;
 }
@@ -263,8 +254,8 @@ body {
   display: inline-block;
   background-image: url("../images/destinos.svg");
   background-size: contain;
-  height: 18px;
-  width: 18px;
+  height: 20px;
+  width: 20px;
   margin-right: 0.5em;
   vertical-align: text-bottom;
 }
@@ -272,8 +263,9 @@ body {
   content: "";
   display: inline-block;
   background-image: url("../images/alojamiento.svg");
+  background-repeat: no-repeat;
   background-size: contain;
-  width: 18px;
+  width: 20px;
   height: 20px;
   margin-right: 0.5em;
   vertical-align: text-bottom;
@@ -413,11 +405,13 @@ body {
   width: 12px;
   margin: 0 6px;
   background-color: #ddd;
+  border: 2px solid #fff;
   border-radius: 50%;
   display: inline-block;
   cursor: pointer;
 }
 .carousel__dots .carousel__dot--active {
+  border: 2px solid #fff;
   background-color: #ff884d;
 }
 

@@ -38,7 +38,7 @@ body {
     color: $black;
     text-decoration: none;
     border-radius: 208px;
-    
+
 
     @media only screen and (min-width: 504px) {
       padding: 12px 40px;
@@ -51,7 +51,7 @@ body {
   background-color: #fff;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   padding: 12px 16px;
-  border-bottom: 1px solid $color-primary;
+  border-bottom: 2px solid $color-primary;
   width: 100%;
 
   &__container {
@@ -104,25 +104,16 @@ body {
     gap: 72px;
     list-style: none;
     flex-wrap: wrap;
+
+
   }
-
-  &__item {
-    position: relative;
-    border: 1px solid red;
-    transition: border-color 0.3s ease;
-    width: auto;
-
-    &:hover {
-      border-bottom-color: $color-primary;
-    }
-  }
-
 
   .nav__link {
     color: $black;
     text-decoration: none;
     position: relative;
     display: inline-block;
+
 
     &:hover {
       color: $color-primary;
@@ -131,7 +122,7 @@ body {
     &:hover::after {
       content: "";
       position: absolute;
-      bottom: -100%; // Coloca el triángulo justo debajo
+      bottom: -130%; 
       left: 50%;
       transform: translateX(-50%) rotate(180deg);
       width: 0;
@@ -146,8 +137,8 @@ body {
       display: inline-block;
       background-image: url('../images/aventura.svg');
       background-size: contain;
-      width: 24px;
-      height: 24px;
+      width: 20px;
+      height: 20px;
       margin-right: 0.5em;
       vertical-align: text-bottom;
     }
@@ -157,8 +148,8 @@ body {
       display: inline-block;
       background-image: url('../images/destinos.svg');
       background-size: contain;
-      height: 18px;
-      width: 18px;
+      height: 20px;
+      width: 20px;
       margin-right: 0.5em;
       vertical-align: text-bottom;
     }
@@ -167,8 +158,9 @@ body {
       content: "";
       display: inline-block;
       background-image: url('../images/alojamiento.svg');
+      background-repeat: no-repeat;
       background-size: contain;
-      width: 18px;
+      width: 20px;
       height: 20px;
       margin-right: 0.5em;
       vertical-align: text-bottom;
@@ -321,11 +313,13 @@ body {
       width: 12px;
       margin: 0 6px;
       background-color: #ddd;
+      border: 2px solid #fff;
       border-radius: 50%;
       display: inline-block;
       cursor: pointer;
 
       &--active {
+        border: 2px solid #fff;
         background-color: #ff884d;
       }
     }
@@ -432,7 +426,7 @@ body {
     font-size: 1rem;
     margin-bottom: 0.75rem;
 
-    
+
     &:hover {
       color: $color-primary;
     }
@@ -835,8 +829,9 @@ body {
 @media (max-width: 390px) {
   .modal {
     height: 100%;
-  }filters
-  .modal__footer {
+  }
+
+  filters .modal__footer {
     background-color: $white !important;
   }
 }
