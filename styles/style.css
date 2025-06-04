@@ -503,6 +503,7 @@ body {
 }
 .filters__block {
   margin-bottom: 2rem;
+  position: relative;
 }
 .filters__block-title {
   font-weight: 600;
@@ -773,7 +774,8 @@ body {
 }
 .filters__block-title .filters__arrow {
   color: #342e34;
-  margin-left: 10px;
+  position: absolute;
+  right: 5%;
 }
 .filters__block-title .filters__arrow:hover {
   color: #ff8f50;

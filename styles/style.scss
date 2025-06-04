@@ -416,6 +416,7 @@ body {
 
   &__block {
     margin-bottom: 2rem;
+    position: relative;
   }
 
   &__block-title {
@@ -729,7 +730,8 @@ body {
 
       .filters__arrow {
         color: $black;
-        margin-left: 10px;
+        position: absolute;
+        right: 5%;
 
         &:hover {
           color: $color-primary;
