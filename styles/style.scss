@@ -758,6 +758,7 @@ body {
     padding-left: 0;
     margin: 0.5rem 0;
     display: none;
+    position: relative;
 
     .filters__option {
       margin: 0.5rem 0;
@@ -813,6 +814,45 @@ body {
           text-align: center;
           line-height: 1rem;
           display: inline-block;
+          position: relative;
+
+          .tooltip {
+            @include fontStyle($weight: 500, $size: 14px);
+            position: absolute;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $white;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: $black;
+            padding: 6px 10px;
+            border-radius: 4px;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.2s ease;
+            z-index: 10;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid $white;
+            z-index: 20;
+          }
+
+          &:hover .tooltip,
+          &:focus .tooltip {
+            opacity: 1;
+            visibility: visible;
+          }
         }
       }
     }

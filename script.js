@@ -15,7 +15,16 @@ function initFilters() {
   function getSelectedFilters() {
     return Array.from(checkboxes)
       .filter(cb => cb.checked)
-      .map(cb => cb.parentElement.textContent.trim().replace(/ i(\s*)$/, '').toLowerCase());
+      .map(cb => {
+        const label = cb.closest("label");
+        const nodes = Array.from(label.childNodes);
+        const textOnly = nodes
+          .filter(node => node.nodeType === Node.TEXT_NODE)
+          .map(node => node.textContent.trim())
+          .join(" ");
+
+        return textOnly.toLowerCase();
+      });
   }
 
   function filterCards() {
@@ -33,6 +42,7 @@ function initFilters() {
   checkboxes.forEach(cb => cb.addEventListener("change", filterCards));
   filterCards();
 }
+
 
 // 🪟 Modal para "Ver desglose"
 function initModal() {

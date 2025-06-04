@@ -793,6 +793,7 @@ body {
   padding-left: 0;
   margin: 0.5rem 0;
   display: none;
+  position: relative;
 }
 .filters__options .filters__option {
   margin: 0.5rem 0;
@@ -845,6 +846,45 @@ body {
   text-align: center;
   line-height: 1rem;
   display: inline-block;
+  position: relative;
+}
+.filters__options .filters__option label .info-icon .tooltip {
+  font-family: "Syne", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 20px;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  color: #342e34;
+  padding: 6px 10px;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+.filters__options .filters__option label .info-icon::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid #fff;
+  z-index: 20;
+}
+.filters__options .filters__option label .info-icon:hover .tooltip, .filters__options .filters__option label .info-icon:focus .tooltip {
+  opacity: 1;
+  visibility: visible;
 }
 .filters__more-link {
   display: inline-block;
