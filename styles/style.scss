@@ -122,7 +122,7 @@ body {
     &:hover::after {
       content: "";
       position: absolute;
-      bottom: -130%; 
+      bottom: -130%;
       left: 50%;
       transform: translateX(-50%) rotate(180deg);
       width: 0;
@@ -772,10 +772,34 @@ body {
         color: $black;
         cursor: pointer;
 
-        input[type='checkbox'] {
-          accent-color: $color-primary;
-          width: 1rem;
-          height: 1rem;
+
+        input[type="checkbox"] {
+          appearance: none;
+          -webkit-appearance: none;
+          width: 18px;
+          height: 18px;
+          border: 2px solid $color-secondary;
+          border-radius: 5px;
+          background-color: white;
+          cursor: pointer;
+          position: relative;
+          transition: background-color 0.2s ease;
+
+          &:checked {
+            background-color: $color-primary;
+          }
+
+          &:checked::after {
+            content: "";
+            position: absolute;
+            left: 4px;
+            top: 1px;
+            width: 5px;
+            height: 10px;
+            border: solid $color-secondary;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+          }
         }
 
         .info-icon {
