@@ -60,12 +60,6 @@ body {
     justify-content: space-between;
   }
 
-  @media only screen and (max-width: 1024px) {
-    &__container {
-      //flex-direction: column;
-    }
-  }
-
   &__logo {
     display: flex;
 
@@ -263,7 +257,7 @@ body {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 1rem;
+    font-size: 2rem;
     color: white;
     width: 40px;
     height: 40px;
@@ -394,13 +388,17 @@ body {
 .filters {
   background-color: #f7f7f7;
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
   margin-right: 24px;
   width: 350px;
 
   &__close {
     display: flex;
+    border-bottom: 1px solid #e0dcd8;
+    justify-content: center;
     position: relative;
+    padding: 14px 0;
+    margin-bottom: 28px;
 
     .modal__close {
       position: absolute;
@@ -694,11 +692,10 @@ body {
 }
 
 .filters {
+  @include fontStyle($family: 'Syne');
   padding: 1rem;
   background-color: #fdf9f6;
-  border-radius: 8px;
-  font-family: 'Syne', sans-serif;
-  color: $color-secondary;
+  color: $black;
   height: 100%;
   min-width: 264px;
 
@@ -717,8 +714,7 @@ body {
   }
 
   &__block {
-    border-top: 1px solid #e0dcd8;
-    padding: 1rem 0;
+
 
     &-title {
       display: flex;
@@ -733,10 +729,12 @@ body {
       }
 
       .filters__arrow {
-        font-size: 0.875rem;
-        color: $color-primary;
+        color: $black;
         margin-left: 10px;
 
+        &:hover {
+          color: $color-primary;
+        }
       }
     }
 
@@ -749,6 +747,7 @@ body {
 
       .filters__arrow {
         transform: rotate(90deg);
+        color: $color-primary;
       }
     }
   }
@@ -829,9 +828,24 @@ body {
 
   &__price-inputs {
     display: none;
+    position: relative;
     flex-direction: column;
     gap: 0.75rem;
     margin-top: 1rem;
+
+    .box__inputs {
+      position: relative;
+
+      .icon-placeholder {
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        transform: translateY(-50%);
+        width: 18px;
+        height: 18px;
+        pointer-events: none;
+      }
+    }
 
     .filters__input {
       padding: 0.6rem 1rem;
@@ -839,10 +853,17 @@ body {
       border-radius: 208px;
       padding: 12px;
       font-size: 14px;
+      padding-left: 4rem;
       color: #817781;
 
       &::placeholder {
-        color: $color-secondary;
+        color: #817781;
+      }
+
+
+
+      input#precioMaximo+.icon-placeholder {
+        left: calc(50% + 1rem);
       }
     }
   }
@@ -1007,11 +1028,11 @@ body {
 .filters__arrow {
   display: inline-block;
   transition: transform 0.3s ease;
+  font-size: 2rem;
 }
 
 .filters__block--open .filters__arrow {
   transform: rotate(90deg);
-  /* Gira la flecha cuando está abierto */
 }
 
 
