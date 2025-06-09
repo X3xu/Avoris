@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initPriceFilters();
 });
 
-// 🔍 Filtro de tarjetas por etiquetas
+
 function initFilters() {
   const checkboxes = document.querySelectorAll(".filters__option input[type='checkbox']");
   const cards = document.querySelectorAll(".card");
@@ -44,7 +44,7 @@ function initFilters() {
 }
 
 
-// 🪟 Modal para "Ver desglose"
+
 function initModal() {
   const modal = document.querySelector(".modal-overlay");
   const closeModalBtn = document.querySelector(".modal__close");
@@ -68,7 +68,7 @@ function initModal() {
   });
 }
 
-// 🖼️ Carrusel de imágenes
+
 function initCarousel() {
   const slides = document.querySelectorAll('.carousel__slide');
   const dots = document.querySelectorAll('.carousel__dot');
@@ -101,7 +101,7 @@ function initCarousel() {
   setInterval(() => goToSlide(currentSlide + 1), 5000);
 }
 
-// 🎛️ Mostrar/Ocultar bloques de filtros
+
 function initToggles() {
   function setupToggle(triggerSelector, targetSelector, { hideTrigger = false, showOnly = false } = {}) {
     const trigger = document.querySelector(triggerSelector);
@@ -123,7 +123,7 @@ function initToggles() {
   setupToggle('#cerrarFilters', '.filters');
 }
 
-// ⬇️ Expansión/colapso de secciones de filtros
+
 function initFilterBlocks() {
   const filterBlocks = document.querySelectorAll('.filters__block');
 

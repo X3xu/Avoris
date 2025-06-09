@@ -1109,7 +1109,6 @@ body {
     display: flex;
     flex-direction: column;
 
-    // Asegúrate de mostrarlo al abrir
     &.is-open {
       display: flex !important;
     }
