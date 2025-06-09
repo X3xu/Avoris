@@ -976,9 +976,15 @@ body {
   justify-content: space-between;
   padding: 1rem;
 }
+@media (max-width: 500px) {
+  .modal {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+}
 .modal__title {
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   margin: 0;
 }
 .modal__close {
@@ -1047,6 +1053,13 @@ body {
   font-weight: bold;
   display: flex;
   justify-content: space-between;
+}
+@media (max-width: 500px) {
+  .modal__footer {
+    background-color: #fff;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+  }
 }
 .modal__final-amount {
   font-family: "Nunito", sans-serif;

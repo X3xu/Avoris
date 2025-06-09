@@ -956,9 +956,14 @@ body {
     padding: 1rem;
   }
 
+  @media (max-width: 500px) {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
   &__title {
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     margin: 0;
   }
 
@@ -1027,7 +1032,15 @@ body {
     font-weight: bold;
     display: flex;
     justify-content: space-between;
+
+    @media (max-width: 500px) {
+      background-color: $white;
+      border-bottom-left-radius: 0px;
+      border-bottom-right-radius: 0px;
+    }
   }
+
+  
 
   &__final-amount {
     @include fontStyle($family: 'Nunito', $weight: 700);
@@ -1080,10 +1093,6 @@ body {
 .filters__icon {
   fill: #6a6a6a;
   transition: fill 0.3s ease;
-}
-
-.filters__block--open .filters__icon {
-  fill: #E94E77;
 }
 
 @media only screen and (max-width: 390px) {
