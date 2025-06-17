@@ -54,9 +54,37 @@ body {
   border-bottom: 2px solid $color-primary;
   width: 100%;
 
+  @media only screen and (max-width: 1024px) {
+    &__container {
+      flex-direction: column;
+      position: relative;
+      align-items: normal;
+    }
+
+    &__actions {
+      position: absolute;
+      top: 25px;
+      right: 5.5%;
+      transform: translate(100%, -50%);
+    }
+
+    &__nav {
+      width: 100%;
+    }
+  }
+  
+  @media only screen and (min-width: 1024px) {
+    &__container {
+      align-items: center !important;
+    }
+  }
+
+  #cerrarMenu {
+    display: none;
+  }
+
   &__container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
   }
 
@@ -76,11 +104,32 @@ body {
     height: 32px;
   }
 
+
   @media only screen and (max-width: 1024px) {
     &__nav .nav__list {
       display: none;
       flex-direction: column;
       margin-top: 40px;
+    }
+
+    &__nav .nav__item {
+      text-align: center;
+      width: 100%;
+
+      :hover {
+        padding-bottom: 10px;
+        border-bottom: 2px solid $color-primary;
+        z-index: 10;
+      }
+
+      :hover::after {
+        bottom: -5% !important;
+      }
+    }
+
+    &__nav .nav__link {
+      font-size: 1.2rem;
+      width: 100%;
     }
   }
 
@@ -92,14 +141,25 @@ body {
 
   &__nav .nav__list {
     @include fontStyle ($family: 'Nunito', $weight: 700, $size: 16px, $lineHeight: 20px);
-    display: none;
     align-items: center;
     justify-content: space-around;
+    display: none;
     gap: 72px;
     list-style: none;
     flex-wrap: wrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
 
-
+    &.active {
+      display: flex;
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
   }
 
   .nav__link {
@@ -107,7 +167,6 @@ body {
     text-decoration: none;
     position: relative;
     display: inline-block;
-
 
     &:hover {
       color: $color-primary;
@@ -134,7 +193,7 @@ body {
       width: 20px;
       height: 20px;
       margin-right: 0.5em;
-      vertical-align: text-bottom;
+      vertical-align: middle;
     }
 
     &.ico_destinos::before {
@@ -145,7 +204,7 @@ body {
       height: 20px;
       width: 20px;
       margin-right: 0.5em;
-      vertical-align: text-bottom;
+      vertical-align: text-middle;
     }
 
     &.ico_alojamiento::before {
@@ -157,7 +216,7 @@ body {
       width: 20px;
       height: 20px;
       margin-right: 0.5em;
-      vertical-align: text-bottom;
+      vertical-align: middle;
     }
   }
 
@@ -166,9 +225,12 @@ body {
       .burger {
         cursor: pointer;
         display: block;
+        background: none;
+        border: none;
         color: $color-secondary;
         height: 24px;
         width: 24px;
+        transition: opacity 0.3s ease, visibility 0.8s ease;
       }
     }
 
@@ -1040,7 +1102,7 @@ body {
     }
   }
 
-  
+
 
   &__final-amount {
     @include fontStyle($family: 'Nunito', $weight: 700);

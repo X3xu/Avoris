@@ -174,9 +174,26 @@ body {
   border-bottom: 2px solid #ff8f50;
   width: 100%;
 }
+@media only screen and (max-width: 1024px) {
+  .header__container {
+    flex-direction: column;
+    position: relative;
+  }
+  .header__actions {
+    position: absolute;
+    top: 25px;
+    right: 5.5%;
+    transform: translate(100%, -50%);
+  }
+  .header__nav {
+    width: 100%;
+  }
+}
+.header #cerrarMenu {
+  display: none;
+}
 .header__container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
 }
 .header__logo {
@@ -198,6 +215,22 @@ body {
     flex-direction: column;
     margin-top: 40px;
   }
+  .header__nav .nav__item {
+    text-align: center;
+    width: 100%;
+  }
+  .header__nav .nav__item :hover {
+    padding-bottom: 10px;
+    border-bottom: 1.5px solid #ff8f50;
+    z-index: 10;
+  }
+  .header__nav .nav__item :hover::after {
+    bottom: -5% !important;
+  }
+  .header__nav .nav__link {
+    font-size: 1.2rem;
+    width: 100%;
+  }
 }
 @media only screen and (min-width: 1024px) {
   .header__nav .nav__list {
@@ -210,12 +243,24 @@ body {
   font-weight: 700;
   font-style: normal;
   line-height: 20px;
-  display: none;
   align-items: center;
   justify-content: space-around;
+  display: none;
   gap: 72px;
   list-style: none;
   flex-wrap: wrap;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transform: translateY(-10px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+.header__nav .nav__list.active {
+  display: flex;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateY(0);
 }
 .header .nav__link {
   color: #342e34;
@@ -246,7 +291,7 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 0.5em;
-  vertical-align: text-bottom;
+  vertical-align: middle;
 }
 .header .nav__link.ico_destinos::before {
   content: "";
@@ -256,7 +301,7 @@ body {
   height: 20px;
   width: 20px;
   margin-right: 0.5em;
-  vertical-align: text-bottom;
+  vertical-align: text-middle;
 }
 .header .nav__link.ico_alojamiento::before {
   content: "";
@@ -267,15 +312,18 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 0.5em;
-  vertical-align: text-bottom;
+  vertical-align: middle;
 }
 @media screen and (max-width: 744px) {
   .header .header__actions .burger {
     cursor: pointer;
     display: block;
+    background: none;
+    border: none;
     color: #622f60;
     height: 24px;
     width: 24px;
+    transition: opacity 0.3s ease, visibility 0.8s ease;
   }
 }
 @media screen and (min-width: 1024px) {
@@ -1113,10 +1161,6 @@ body {
 .filters__icon {
   fill: #6a6a6a;
   transition: fill 0.3s ease;
-}
-
-.filters__block--open .filters__icon {
-  fill: #E94E77;
 }
 
 @media only screen and (max-width: 390px) {

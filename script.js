@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initToggles();
   initFilterBlocks();
   initPriceFilters();
+  initMenuMobile();
 });
 
 
@@ -164,4 +165,25 @@ function initPriceFilters() {
 
     minInput.addEventListener("input", filterCards);
     maxInput.addEventListener("input", filterCards);
+}
+
+function initMenuMobile(){
+  const buttonBurger = document.querySelector(".burger");
+  const closeMenu = document.querySelector('#cerrarMenu');
+  const menuMobile = document.querySelector('.nav__list');
+  
+  function showMenu () {
+    closeMenu.style.display = 'block';
+    buttonBurger.style.display = 'none';
+    menuMobile.classList.toggle('active');
+  }
+
+  function hiddenMenu(){
+    closeMenu.style.display = 'none';
+    buttonBurger.style.display = 'block';
+    menuMobile.classList.toggle('active');
+  }
+  
+  buttonBurger.addEventListener("click", showMenu);
+  closeMenu.addEventListener("click", hiddenMenu);
 }
