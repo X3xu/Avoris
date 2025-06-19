@@ -178,15 +178,21 @@ body {
   .header__container {
     flex-direction: column;
     position: relative;
+    align-items: normal;
   }
   .header__actions {
     position: absolute;
-    top: 25px;
+    top: 20px;
     right: 5.5%;
     transform: translate(100%, -50%);
   }
   .header__nav {
     width: 100%;
+  }
+}
+@media only screen and (min-width: 1024px) {
+  .header__container {
+    align-items: center !important;
   }
 }
 .header #cerrarMenu {
@@ -221,7 +227,7 @@ body {
   }
   .header__nav .nav__item :hover {
     padding-bottom: 10px;
-    border-bottom: 1.5px solid #ff8f50;
+    border-bottom: 2px solid #ff8f50;
     z-index: 10;
   }
   .header__nav .nav__item :hover::after {
@@ -254,6 +260,13 @@ body {
   pointer-events: none;
   transform: translateY(-10px);
   transition: opacity 0.4s ease, transform 0.4s ease;
+}
+@media only screen and (min-width: 1024px) {
+  .header__nav .nav__list {
+    opacity: 100 !important;
+    transform: translateY(0);
+    visibility: visible !important;
+  }
 }
 .header__nav .nav__list.active {
   display: flex;
@@ -314,7 +327,7 @@ body {
   margin-right: 0.5em;
   vertical-align: middle;
 }
-@media screen and (max-width: 744px) {
+@media screen and (max-width: 1024px) {
   .header .header__actions .burger {
     cursor: pointer;
     display: block;
@@ -328,7 +341,7 @@ body {
 }
 @media screen and (min-width: 1024px) {
   .header .header__actions .burger {
-    display: none;
+    display: none !important;
   }
 }
 .header .header__actions .booking {
@@ -756,6 +769,7 @@ body {
 
 @media only screen and (min-width: 1440px) {
   .footer__container {
+    align-items: center;
     justify-content: center !important;
   }
 }

@@ -63,7 +63,7 @@ body {
 
     &__actions {
       position: absolute;
-      top: 25px;
+      top: 20px;
       right: 5.5%;
       transform: translate(100%, -50%);
     }
@@ -72,7 +72,7 @@ body {
       width: 100%;
     }
   }
-  
+
   @media only screen and (min-width: 1024px) {
     &__container {
       align-items: center !important;
@@ -153,6 +153,12 @@ body {
     transform: translateY(-10px);
     transition: opacity 0.4s ease, transform 0.4s ease;
 
+    @media only screen and (min-width: 1024px) {
+      opacity: 100 !important;
+      transform: translateY(0);
+      visibility: visible !important;
+    }
+
     &.active {
       display: flex;
       opacity: 1;
@@ -221,7 +227,7 @@ body {
   }
 
   .header__actions {
-    @media screen and (max-width: 744px) {
+    @media screen and (max-width: 1024px) {
       .burger {
         cursor: pointer;
         display: block;
@@ -236,7 +242,7 @@ body {
 
     @media screen and (min-width: 1024px) {
       .burger {
-        display: none;
+        display: none !important;
       }
     }
 
@@ -719,6 +725,7 @@ body {
 
   @media only screen and (min-width: 1440px) {
     &__container {
+      align-items: center;
       justify-content: center !important;
     }
   }
